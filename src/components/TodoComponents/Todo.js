@@ -12,4 +12,4 @@ function Todo(props) {
   );
 }
 
-export default Student;
+export default Todo;

@@ -4,13 +4,12 @@
 
 // - `<TodoList />` receives your Todos array and iterates 
 // over the list generating a new `<Todo />` for each element in the array.
+// import React from 'react';
 
+// import Todo from './Todo';
 
-const items = [
-    {
-    task: '',
-    id: `Date.now()`,
-    completed: false
-    }
-]
-
+// const Todo = {
+//     this.state.items.map((itemList) => (
+//     <Todo key={id} items={itemList} />
+//   ))};
+// export default TodoList;
