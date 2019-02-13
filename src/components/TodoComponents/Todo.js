@@ -1,4 +1,5 @@
-// - `<Todo />` is a component that takes in the `todo` data and displays the task to the screen.
+// - `<Todo />` is a component that takes in the 
+// `todo` data and displays the task to the screen.
 
 import React from 'react';
 
@@ -6,10 +7,9 @@ function Todo(props) {
   return (
     <div>
         <p>
-            {props.items.task}
+            {props.list.items}
         </p>
-      </div>
+    </div>
   );
 }
-
 export default Todo;

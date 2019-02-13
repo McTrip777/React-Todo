@@ -1,65 +1,64 @@
 import React from 'react';
 
-import Todo from './components/TodoComponents/Todo';
+// import Todo from './components/TodoComponents/Todo';
 import TodoList from './components/TodoComponents/TodoList';
 import TodoForm from './components/TodoComponents/TodoForm';
 // `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
 //   - All of your application data will be stored here on `<App />`.
 //   - All of your `handler` functions should live here on `<App />`.
 
-const items = [
-  {
-  task: '',
-  id: `Date.now()`,
-  completed: false
-  }
-];
+const itemsArr = [{}];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
   // design `App` to be the parent component of your application.
-  // this component is going to take care of state, and any change handlers you need to work with your state
+  // this component is going to take care of state, and any change 
+  // handlers you need to work with your state
   constructor() {
     super();
     this.state = {
-      items:items,
-      task: '',
-      id: `Date.now()`,
-      completed: false
+      items: itemsArr,
+      inputTask: '',
+      // id: '',
+      // completed: ''
     }
   };
 
   newTask = tasking => {
     tasking.preventDefault();
-    console.log(tasking.target);
-   
+    // console.log(tasking.target);
     const newItem = {
-      task: this.state.task,
+      inputTask: this.state.inputTask,
+      id: this.state.id,
+      completed: this.state.completed
     };
     this.setState({
       items: [...this.state.items, newItem],
-      task: '',
+      inputTask: '',
+      id: Date.now(),
+      completed: false
     });
   };
 
-  handleChanges = btnClick =>{
-    console.log(btnClick.target.value)
-    this.setState({
-      [btnClick.target.task]: btnClick.target.value
-    })
-  }
+  handleChanges = event =>{
+    // console.log(event.target.value)
+    this.setState({[event.target.name]: event.target.value
+    });
+  };
 
   render() {
     return (
       <div>
         <h2>Todo List MVP!</h2>
-            {this.state.items.map((i) => (
-            <Todo key={this.state.id} student={i} />
-          ))}
+          <div>
+      <TodoList list = {this.state.items}/>
+          </div>
       <TodoForm
         newTask={this.newTask}
-        task={this.state.task}
+        inputTask={this.state.inputTask}
         handleChanges={this.handleChanges}
+        id={this.state.id}
+        completed={this.state.completed}
       />
       </div>
     );
