@@ -7,7 +7,17 @@ import TodoForm from './components/TodoComponents/TodoForm';
 //   - All of your application data will be stored here on `<App />`.
 //   - All of your `handler` functions should live here on `<App />`.
 
-const itemsArr = [{}];
+let items = [{
+  task: 'Organize Garage',
+  id: 1528817077286,
+  completed: false
+},
+{
+  task: 'Bake Cookies',
+  id: 1528817084358,
+  completed: false
+}
+];
 
 class App extends React.Component {
   // you will need a place to store your state in this component.
@@ -17,26 +27,24 @@ class App extends React.Component {
   constructor() {
     super();
     this.state = {
-      items: itemsArr,
-      inputTask: '',
-      // id: '',
-      // completed: ''
+      items: items,
+      task: '',
+      id: '',
+      completed: ''
     }
   };
 
-  newTask = tasking => {
-    tasking.preventDefault();
+  newTask = ev => {
+    ev.preventDefault();
     // console.log(tasking.target);
     const newItem = {
-      inputTask: this.state.inputTask,
+      task: this.state.task,
       id: this.state.id,
       completed: this.state.completed
     };
     this.setState({
       items: [...this.state.items, newItem],
-      inputTask: '',
-      id: Date.now(),
-      completed: false
+      task: '',
     });
   };
 
@@ -51,14 +59,12 @@ class App extends React.Component {
       <div>
         <h2>Todo List MVP!</h2>
           <div>
-      <TodoList list = {this.state.items}/>
+      <TodoList items = {this.state.items} />
           </div>
       <TodoForm
         newTask={this.newTask}
-        inputTask={this.state.inputTask}
+        task={this.state.task}
         handleChanges={this.handleChanges}
-        id={this.state.id}
-        completed={this.state.completed}
       />
       </div>
     );

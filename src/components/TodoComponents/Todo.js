@@ -7,9 +7,9 @@ function Todo(props) {
   return (
     <div>
         <p>
-            {props.list.items}
+            {props.items.task}
         </p>
     </div>
   );
-}
+};
 export default Todo;
