@@ -10,7 +10,7 @@ import TodoForm from './components/TodoComponents/TodoForm';
 let items = [{
   task: 'Organize Garage',
   id: 1528817077286,
-  completed: false
+  completed: true
 },
 {
   task: 'Bake Cookies',
@@ -37,14 +37,12 @@ class App extends React.Component {
   newTask = ev => {
     ev.preventDefault();
     // console.log(tasking.target);
-    const newItem = {
-      task: this.state.task,
-      id: Date.now(),
-      completed: this.state.completed
-    };
-    console.log(this.id)
     this.setState({
-      items: [...this.state.items, newItem],
+      items: [...this.state.items, {
+        task: this.state.task,
+        id: Date.now(),
+        completed: this.state.completed
+        }],
       task: '',
       id:'',
       completed:''
@@ -57,12 +55,28 @@ class App extends React.Component {
     });
   };
 
+  toggleCompleted = (id) => {
+    this.setState({
+      items: this.state.items.map(item => {
+        if (item.id !== id){
+        return item;
+       }
+       else{
+         return {
+           ...item,
+           completed: !item.completed
+         }
+       }
+      })
+    })
+  };
+
   render() {
     return (
       <div>
         <h2>Todo List MVP!</h2>
           <div>
-      <TodoList items = {this.state.items} />
+      <TodoList toggleCompleted={this.toggleCompleted} items = {this.state.items} />
           </div>
       <TodoForm
         newTask={this.newTask}

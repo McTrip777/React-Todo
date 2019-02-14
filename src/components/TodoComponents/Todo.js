@@ -5,11 +5,10 @@ import React from 'react';
 
 function Todo(props) {
   return (
-    <div>
-        <p>
+        <p className={props.items.completed ? 'completed' : null} 
+        onClick={() => props.toggleCompleted(props.id)}>
             {props.items.task}
         </p>
-    </div>
   );
 };
 export default Todo;
