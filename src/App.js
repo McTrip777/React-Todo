@@ -75,20 +75,25 @@ class App extends React.Component {
     })
   }
 
-  render() {
+  render(){
     return (
-      <div>
-        <h2>Todo List MVP!</h2>
-          <div>
-      <TodoList toggleCompleted={this.toggleCompleted} 
-        items = {this.state.items} />
-          </div>
-      <TodoForm
-        newTask={this.newTask}
-        task={this.state.task}
-        handleChanges={this.handleChanges}
-      />
-        <button onClick={this.clearCompleted} > Clear completed</button>
+      <div className='container'>
+        <div className='style'>
+          <h1>Todo List:</h1>
+        <div>
+          <TodoList toggleCompleted={this.toggleCompleted} 
+          items = {this.state.items} />
+        </div>
+          <TodoForm
+            newTask={this.newTask}
+            task={this.state.task}
+            handleChanges={this.handleChanges}
+          />
+        <button className='button' 
+        onClick={this.clearCompleted} 
+        > Clear completed</button>
+        <p className='instruction'><strong>NOTE:</strong> Choose item then click <strong>'Clear Complete'</strong> to remove.</p>
+        </div>
       </div>
     );
   }

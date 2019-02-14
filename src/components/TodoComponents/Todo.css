@@ -1,6 +1,48 @@
-.App{
+.container{
+    margin:0 auto;
     background-color: tan;
+    text-align: center;
+    width:50rem;
+    padding:4rem 0;
+}
+.container .style{
+    background-color: lightblue;
+    margin:0 8rem;
+    padding-top:2rem;
+}
+.container .style h1{
+    border: 2px solid white;
+    border-radius: 5px;
+    width:15rem;
+    margin:0 auto 0;
+}
+.list-items{
+
+}
+.list-items .item{
+    font-size: 1.2rem;
+}
+.form{
+    display:flex;
+    flex-direction: column;
+    margin: 0 auto;
+    align-items: center;
+}
+.input{
+    width:14rem;
+    margin-bottom: 1rem;
+    height:1.5rem;
+    font-size: 1rem;
+}
+.container .button{
+    width:10rem;
+    height:3rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
 }
 .list-items .completed{
     text-decoration: line-through;
+}
+.instruction{
+    padding-bottom:1rem;
 }
