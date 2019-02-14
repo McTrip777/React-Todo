@@ -39,12 +39,15 @@ class App extends React.Component {
     // console.log(tasking.target);
     const newItem = {
       task: this.state.task,
-      id: this.state.id,
+      id: Date.now(),
       completed: this.state.completed
     };
+    console.log(this.id)
     this.setState({
       items: [...this.state.items, newItem],
       task: '',
+      id:'',
+      completed:''
     });
   };
 
