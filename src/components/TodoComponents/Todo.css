@@ -1,0 +1,57 @@
+.container{
+    margin:0 auto;
+    background-color: tan;
+    text-align: center;
+    width:50rem;
+    padding:4rem 0;
+}
+.container .style{
+    background-color: lightblue;
+    margin:0 8rem;
+    padding-top:2rem;
+}
+.container .style h1{
+    border: 2px solid white;
+    border-radius: 5px;
+    width:15rem;
+    margin:0 auto 1rem;
+}
+.list-items{
+}
+.list-items .item{
+    font-size: 1.2rem;
+    background-color: snow;
+}
+.form{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+}
+.input{
+    width:14rem;
+    height:1.5rem;
+    font-size: 1rem;
+    border-radius:6px;
+}
+.container .buttonAdd{
+    width:4rem;
+    height:4rem;
+    font-size: 3rem;
+    margin-left:1rem;
+    border-radius:50px;
+    padding-bottom:1rem;
+    background-color:grey;
+    color:white;
+}
+.container .buttonClear{
+    width:10rem;
+    height:3rem;
+    margin-bottom: 1rem;
+    font-size: 1rem;
+}
+.list-items .completed{
+    text-decoration: line-through;
+}
+.instruction{
+    padding-bottom:1rem;
+}
