@@ -5,8 +5,8 @@ import React from 'react';
 
 function Todo(props) {
   return (
-        <p className={props.items.completed ? 'completed' : null} 
-        onClick={() => props.toggleCompleted(props.id)}>
+        <p className={`item${props.items.completed ? ' completed' : ''}`}
+        onClick={() => props.toggleCompleted(props.items.id)}>
             {props.items.task}
         </p>
   );

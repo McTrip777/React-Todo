@@ -1,7 +1,6 @@
 .App{
-    text-align: center;
+    background-color: tan;
 }
-
-.completed{
-    list-style: inside;
+.list-items .completed{
+    text-decoration: line-through;
 }

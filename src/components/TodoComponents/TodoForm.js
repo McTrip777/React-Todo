@@ -34,7 +34,6 @@ class TodoForm extends React.Component {
         placeholder="insert task"
       />
       <button type="submit">Add Task</button>
-      <button type="onClick"> Clear completed</button>
     </form>
   );
   }

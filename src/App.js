@@ -6,6 +6,8 @@ import TodoForm from './components/TodoComponents/TodoForm';
 // `<App />` will hold all the data needed for this project. It will also be the container for your Todo Components.
 //   - All of your application data will be stored here on `<App />`.
 //   - All of your `handler` functions should live here on `<App />`.
+import './components/TodoComponents/Todo.css'
+
 
 let items = [{
   task: 'Organize Garage',
@@ -15,6 +17,11 @@ let items = [{
 {
   task: 'Bake Cookies',
   id: 1528817084358,
+  completed: false
+},
+{
+  task: 'Mow Lawn',
+  id: 1528817084359,
   completed: false
 }
 ];
@@ -45,21 +52,28 @@ class App extends React.Component {
   };
 
 
-  toggleCompleted = (id) => {
+  toggleCompleted = itemId => {
     this.setState({
       items: this.state.items.map(item => {
-        if (item.id !== id){
-        return item;
+        if (itemId === item.id){
+        return {
+          ...item,
+          completed: !item.completed
+        }
        }
        else{
-         return {
-           ...item,
-           completed: !item.completed
-         }
+        return item;
        }
       })
     })
   };
+
+  clearCompleted = e =>{
+    e.preventDefault();
+    this.setState({
+    items: this.state.items.filter(item => !item.completed)
+    })
+  }
 
   render() {
     return (
@@ -74,6 +88,7 @@ class App extends React.Component {
         task={this.state.task}
         handleChanges={this.handleChanges}
       />
+        <button onClick={this.clearCompleted} > Clear completed</button>
       </div>
     );
   }
